@@ -51,6 +51,13 @@ public class Jugador {
         System.out.println(nombre + " recibe " + dano + " Lp");
     }
 
+    public void mostrarCampo() {
+        for (int i = 0; i < campo.size(); i++) {
+            Monstruo m = campo.get(i);
+            System.out.println(i + ". " + m.getNombre() + " [" + (m.isEnAtaque() ? "atk" : "def") + "]");
+        }
+    }
+
     public String getNombre(){
         return nombre;
     }
