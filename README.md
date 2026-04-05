@@ -1,38 +1,37 @@
-<h3>MINI-PROYECTO-1</h3>
-<h3>DANIELA FRANCO IBARRA</h3>
-<h3>DAYAN STEFANY MARULANDA</h3>
-<h3>JUAN ALEJANDRO MARQUEZ</h3>
+<h3>INTEGRANTES:</h3>
+<h3>Daniela Franco Ibarra</h3>
+<h3>Dayan Stefany Marulanda</h3>
+<h3>Juan Alejandro Marquez</h3>
+<br>
 
----
+
  Yu-Gi-Oh! 
-Mini Proyecto 1 – Programación Orientada a Eventos (Java)<br>
----
+Mini Proyecto 1 – Programación Orientada a Eventos (Java)
+-
 
---- 
+
 Descripción del juego
----<br>
+-
 
 Este proyecto implementa una simulación simplificada de un duelo de Yu-Gi-Oh! ejecutado completamente por consola en Java 21.
 Dos jugadores se enfrentan utilizando mazos de cartas compuestos por monstruos y cartas mágicas. Cada jugador inicia con 8000 puntos de vida (LP) y el objetivo es reducir los LP del oponente a 0 o hacer que pierda por quedarse sin cartas en el mazo.
 El sistema modela entidades del juego como clases, aplicando los principios fundamentales de la Programación Orientada a Objetos (OOP).<br>
 
-----
+
  Instrucciones de ejecución
- ---
- <br>
-Requisitos
+ -
+
+Requisitos:
 Java JDK 21 o superior
 Consola (CMD, PowerShell, terminal Linux o Mac)<br>
 
-----
  Pasos para ejecutar
- ---
-<br>
+ -
 1. Clonar el repositorio: (desde Git Bash)
-git clone < https://github.com/sine-wav3/MINI-PROYECTO-1.git>
+git clone <https://github.com/sine-wav3/MINI-PROYECTO-1.git>
 
 2. Acceder al proyecto:
-cd <MINI-PROYECTO-1>
+cd MINI-PROYECTO-1
 
 3. Compilar los archivos en un Entorno de Desarrollo Integrado (IDE) como Visual Studio.
 
@@ -41,18 +40,9 @@ cd <MINI-PROYECTO-1>
 
 
 Mecánica del juego
----
-<br>
-
 Inicio
-----
-<br>
-
-Se ingresan los nombres de los jugadores
-Se genera un conjunto de cartas (monstruos y mágicas)
-Se reparten 20 cartas a cada jugador
-Cada jugador roba 5 cartas iniciales
-Se selecciona aleatoriamente quién comienza<br>
+-
+Se ingresan los nombres de los jugadores, se genera un conjunto de cartas (monstruos y mágicas), se reparten 20 cartas a cada jugador, cada jugador roba 5 cartas iniciales y se selecciona aleatoriamente quién comienza.
 
 
  Turno de juego
@@ -72,28 +62,38 @@ Se elige una acción:
 
  Acciones disponibles:
  -
- <br>
+Jugar carta<br>
 
- Jugar carta
- -
-Monstruo: se invoca al campo
-Mágica: se activa inmediatamente y ejecuta su efecto
+Monstruo: se invoca al campo<br>
+
+Mágica: se activa inmediatamente y ejecuta su efecto<br>
+
 
  Atacar
  -
-Si el oponente no tiene monstruos → ataque directo
-Si tiene:
-Se selecciona un objetivo
-Si ATK atacante > DEF defensor:
-Se destruye el monstruo
-Se inflige daño por la diferencia
+Si el oponente no tiene monstruos → ataque directo<br>
+
+Si tiene:<br>
+
+Se selecciona un objetivo<br>
+
+Si ATK atacante > DEF defensor:<br>
+
+Se destruye el monstruo<br>
+
+Se inflige daño por la diferencia<br>
+
 
  Cambiar modo
  -
-Permite alternar entre:
-Modo ataque
-Modo defensa
-Solo una vez por turno por monstruo
+Permite alternar entre:<br>
+
+Modo ataque<br>
+
+Modo defensa<br>
+
+Solo una vez por turno por monstruo<br>
+
 
  Pasar turno
  -
@@ -101,96 +101,149 @@ No se realiza ninguna acción
 
 Condiciones de victoria
 -
-Un jugador gana si:
-El oponente llega a 0 LP
-El oponente intenta robar carta y su mazo está vacío
+Un jugador gana si:<br>
+
+El oponente llega a 0 LP<br>
+
+El oponente intenta robar carta y su mazo está vacío<br>
+
 
 Estructura del proyecto
 -
- Clase abstracta Carta
-Atributo: nombre
-Base para todas las cartas
+ Clase abstracta Carta<br>
+
+Atributo: nombre<br>
+
+Base para todas las cartas<br>
+
 
  Clase Monstruo (hereda de Carta)
  -
-Atributos:
-ATK (ataque)
-DEF (defensa)
-nivel
-modo (ataque/defensa)
-Funcionalidades:
-Cambio de modo (cambiarModo())
-Restricción de cambio por turno
-Modificación de estadísticas (buffs)
+Atributos:<br>
+
+ATK (ataque)<br>
+DEF (defensa)<br>
+
+nivel<br>
+
+modo (ataque/defensa)<br>
+
+Funcionalidades:<br>
+
+Cambio de modo (cambiarModo())<br>
+
+Restricción de cambio por turno<br>
+
+Modificación de estadísticas (buffs)<br>
+
 
  Interfaz Activable
  -
-Define el comportamiento de cartas con efectos:
-void activar(Jugador jugador, Jugador oponente);
+Define el comportamiento de cartas con efectos:<br>
+
+void activar(Jugador jugador, Jugador oponente);<br>
+
 
 
  Clase Mágica
  -
-Hereda de Carta
-Implementa Activable
-Representa cartas con efectos inmediatos
+Hereda de Carta<br>
+
+Implementa Activable<br>
+
+Representa cartas con efectos inmediatos<br>
+
 
  Cartas mágicas implementadas
  -
-Carta/Efecto
-PotOfGreed: Roba 2 cartas
-Hinotama: Inflige 500 de daño directo
-DarkHole: Destruye todos los monstruos en el campo
-Raigeki: Destruye todos los monstruos del oponente
-BoostAtk: Aumenta ATK de un monstruo en 500
-StandarOfCourage: Aumenta ATK de todos tus monstruos en 200
-AceleronMiauravilloso: Aumenta DEF de un monstruo en 200
-AcesCoup: Lanza moneda: roba 2 cartas tú o el oponente
-ChangeOfHeart: Roba un monstruo del oponente
-TyphoonOfMagicalSpace: Destruye un monstruo enemigo específico
+Carta/Efecto<br>
+
+PotOfGreed: Roba 2 cartas<br>
+
+Hinotama: Inflige 500 de daño directo<br>
+
+DarkHole: Destruye todos los monstruos en el campo<br>
+
+Raigeki: Destruye todos los monstruos del oponente<br>
+
+BoostAtk: Aumenta ATK de un monstruo en 500<br>
+
+StandarOfCourage: Aumenta ATK de todos tus monstruos en 200<br>
+
+AceleronMiauravilloso: Aumenta DEF de un monstruo en 200<br>
+
+AcesCoup: Lanza moneda: roba 2 cartas tú o el oponente<br>
+
+ChangeOfHeart: Roba un monstruo del oponente<br>
+
+TyphoonOfMagicalSpace: Destruye un monstruo enemigo específico<br>
+
 
 
  Clase Jugador
  -
-Responsabilidades:
-Manejo de:
-mano
-campo
-mazo
-puntos de vida (LP)
-Métodos clave:
-robarCarta()
-jugarCarta()
-recibirDano()
-mostrarMano()
-mostrarCampo()
+Responsabilidades:<br>
+
+Manejo de:<br>
+
+mano<br>
+
+campo<br>
+
+mazo<br>
+
+puntos de vida (LP)<br>
+
+Métodos clave:<br>
+
+robarCarta()<br>
+
+jugarCarta()<br>
+
+recibirDano()<br>
+
+mostrarMano()<br>
+
+mostrarCampo()<br>
+
 
  Clase Juego (main)
 Controla:
 -
-Flujo del juego
-Turnos
-Acciones del jugador
-Sistema de combate
+Flujo del juego<br>
+
+Turnos<br>
+
+Acciones del jugador<br>
+
+Sistema de combate<br>
+
 
 Conceptos de OOP aplicados
- Encapsulamiento
- -
-Atributos privados en clases
-Acceso mediante getters y setters
+-
+ Encapsulamiento:<br>
+
+Atributos privados en clases<br>
+
+Acceso mediante getters y setters<br>
+
 
  Herencia
  -
-Carta → Monstruo, Magica
+Carta → Monstruo, Magica<br>
+
 
 Polimorfismo
 -
-Uso de instanceof para distinguir tipos de carta
-Ejecución dinámica del método activar()
+Uso de instanceof para distinguir tipos de carta<br>
+
+Ejecución dinámica del método activar()<br>
+
 
  Interfaces
  -
-Activable define comportamiento común para cartas mágicas
+Activable define comportamiento común para cartas mágicas<br>
+
 
 
 
