@@ -2,6 +2,7 @@
 <h3>DANIELA FRANCO IBARRA</h3>
 <h3>DAYAN STEFANY MARULANDA</h3>
 <h3>JUAN ALEJANDRO MARQUEZ</h3>
+
 ----
  Yu-Gi-Oh! 
 Mini Proyecto 1 – Programación Orientada a Eventos (Java)
@@ -36,7 +37,7 @@ Se genera un conjunto de cartas (monstruos y mágicas)
 Se reparten 20 cartas a cada jugador
 Cada jugador roba 5 cartas iniciales
 Se selecciona aleatoriamente quién comienza
------
+----
  Turno de juego
 Cada turno sigue este flujo:
 El jugador roba 1 carta
@@ -48,13 +49,13 @@ Se elige una acción:
 2. Atacar
 3. Cambiar modo
 4. Pasar turno
-------
+   -----
 
  Acciones disponibles
  Jugar carta
 Monstruo: se invoca al campo
 Mágica: se activa inmediatamente y ejecuta su efecto
----
+-----
  Atacar
 Si el oponente no tiene monstruos → ataque directo
 Si tiene:
@@ -62,7 +63,7 @@ Se selecciona un objetivo
 Si ATK atacante > DEF defensor:
 Se destruye el monstruo
 Se inflige daño por la diferencia
-----
+------
  Cambiar modo
 Permite alternar entre:
 Modo ataque
@@ -102,8 +103,8 @@ void activar(Jugador jugador, Jugador oponente);
 Hereda de Carta
 Implementa Activable
 Representa cartas con efectos inmediatos
-----
- Cartas mágicas implementadas
+-----
+Cartas mágicas implementadas
 Carta
 Efecto
 PotOfGreed
@@ -126,7 +127,7 @@ ChangeOfHeart
 Roba un monstruo del oponente
 TyphoonOfMagicalSpace
 Destruye un monstruo enemigo específico
-
+----
 ***
  Clase Jugador
 Responsabilidades:
@@ -163,7 +164,6 @@ Ejecución dinámica del método activar()
 ----
  Interfaces
 Activable define comportamiento común para cartas mágicas
-
-
+----
 
 
