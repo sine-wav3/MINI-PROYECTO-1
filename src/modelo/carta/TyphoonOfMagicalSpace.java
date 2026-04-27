@@ -2,17 +2,27 @@ package modelo.carta;
 import modelo.juego.Jugador;
 
 public class TyphoonOfMagicalSpace extends Magica {
+
     public TyphoonOfMagicalSpace() {
         super("Typhoon Of Magical Space");
     }
 
     @Override
     public void activar(Jugador jugador, Jugador oponente) {
-        // No hace nada sin índice — usar activar(jugador, oponente, idx)
-    }
+        if (oponente.getCampo().isEmpty()) {
+            System.out.println("No hay monstruos para destruir");
+            return;
+        }
+        System.out.println("Elige un monstruo enemigo:");
+        for (int i = 0; i < oponente.getCampo().size(); i++) {
+            System.out.println(i + ". " + oponente.getCampo().get(i).getNombre());
+        }
 
-    public void activar(Jugador jugador, Jugador oponente, int idx) {
-        if (oponente.getCampo().isEmpty()) return;
+        // aqui habia un error falta Scanner
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int idx = sc.nextInt();
+
         Monstruo eliminado = oponente.getCampo().remove(idx);
+        System.out.println("🌪️ Destruiste " + eliminado.getNombre());
     }
 }
