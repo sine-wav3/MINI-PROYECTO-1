@@ -1,3 +1,6 @@
+package modelo.carta;
+import modelo.juego.Jugador;
+
 public class BoostAtk extends Magica{
 
     public BoostAtk(){

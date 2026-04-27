@@ -1,3 +1,4 @@
+package vista;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,6 +7,20 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Stack;
 import javax.swing.*;
+
+import modelo.carta.AcesCoup;
+import modelo.carta.BoostAtk;
+import modelo.carta.Carta;
+import modelo.carta.ChangeOfHeart;
+import modelo.carta.DarkHole;
+import modelo.carta.Hinotama;
+import modelo.carta.Monstruo;
+import modelo.carta.PotOfGreed;
+import modelo.carta.Raigeki;
+import modelo.carta.StandarOfCourage;
+import modelo.carta.TrampaGenerica;
+import modelo.carta.TyphoonOfMagicalSpace;
+import modelo.juego.Jugador;
 
 public class VentanaYuGiOh extends JFrame {
     private Jugador j1, j2;

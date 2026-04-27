@@ -1,3 +1,7 @@
+package modelo.carta;
+
+import modelo.juego.Jugador;
+
 public class SakuretsuArmor extends Trampa {
     
     public SakuretsuArmor() {

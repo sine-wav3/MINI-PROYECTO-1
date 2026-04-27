@@ -1,3 +1,6 @@
+package modelo.carta;
+import modelo.juego.Jugador;
+
 public abstract class Trampa extends Carta implements Activable {
 
     private boolean activable = true;

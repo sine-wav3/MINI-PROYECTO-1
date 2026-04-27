@@ -1,4 +1,7 @@
+package modelo.carta;
 import java.util.Scanner;
+
+import modelo.juego.Jugador;
 
 public class ChangeOfHeart extends Magica {
     public ChangeOfHeart(){ 

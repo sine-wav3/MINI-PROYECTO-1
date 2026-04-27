@@ -1,3 +1,5 @@
+package modelo.carta;
+
 public abstract class Magica extends Carta implements Activable {
 
     public Magica(String nombre){

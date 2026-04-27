@@ -1,3 +1,7 @@
+package modelo.carta;
+
+import modelo.juego.Jugador;
+
 public class Hinotama extends Magica {
     public Hinotama(){
         super("Hinotama");

@@ -1,4 +1,9 @@
+package modelo.juego;
 import java.util.*;
+
+import modelo.carta.Activable;
+import modelo.carta.Carta;
+import modelo.carta.Monstruo;
 
 public class Jugador {
     private String nombre;
@@ -19,7 +24,7 @@ public class Jugador {
         }
         Carta carta = mazo.pop();
         mano.add(carta);
-        System.out.println(nombre + "roba una carta");
+        System.out.println(nombre + " roba una carta");
     }
 
     public void mostrarMano(){

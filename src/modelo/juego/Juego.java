@@ -1,4 +1,19 @@
+package modelo.juego;
 import java.util.*;
+
+import modelo.carta.AcesCoup;
+import modelo.carta.BoostAtk;
+import modelo.carta.Carta;
+import modelo.carta.ChangeOfHeart;
+import modelo.carta.DarkHole;
+import modelo.carta.Hinotama;
+import modelo.carta.MirrorForce;
+import modelo.carta.Monstruo;
+import modelo.carta.PotOfGreed;
+import modelo.carta.Raigeki;
+import modelo.carta.SakuretsuArmor;
+import modelo.carta.StandarOfCourage;
+import modelo.carta.TyphoonOfMagicalSpace;
 
 public class Juego {
    
