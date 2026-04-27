@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Juego {
-    
+   
     public static void mostrarEstado(Jugador j1, Jugador j2){
         System.out.println("\n Estado ");
         System.out.println(j1.getNombre() + " Lp " + j1.getLp());
@@ -56,6 +56,7 @@ public class Juego {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        boolean cartaJugadaEsteTurno = false; //se agrega esto para limitar que se juegue una sola carta por turno
     
         System.out.println( "Jugador 1 nombre polfas: ");
         String n1 = sc.nextLine();
@@ -64,33 +65,50 @@ public class Juego {
         String n2 = sc.nextLine();
 
         List<Carta> pool = new ArrayList<>();
+        //////////////////////////////////// se modifica esto para agrgar mas cartas y cositas (lo separe en esto para ver si me marca algun error)
+        String[] nombresMonstruos = {
+        "Mago Oscuro", "Dragón Blanco", "Exodia", "Blue-Eyes", "Red-Eyes",
+        "Curse of Dragon", "Gaia", "Summoned Skull", "Celtic Guardian", "Dark Magician Girl",
+        "Jinzo", "Insect Queen", "Morphing Jar", "Sangan", "Witch of the Black Forest",
+        "Kuriboh", "Man-Eater Bug", "Cyber Dragon", "Elemental HERO", "Neo-Spacian",
+        "Gravekeeper's", "Vampire Lord", "Zombie Master", "Ryko", "Lyla",
+        "Judgment Dragon", "Celestia", "Wulf", "Ehren", "Gorz"
+        };
 
-        for (int i = 0; i < 30; i++){
-            pool.add(new Monstruo("Monstruo " + i, 1000 + i * 10, 1000 + i, 4));
-
+        for (int i = 0; i < 30; i++) {
+            int nivel = 1 + (i % 12); // niveles 1-12
+            int atk = 500 + (i * 100);
+            int def = 500 + (i * 80);
+            pool.add(new Monstruo(nombresMonstruos[i % nombresMonstruos.length] + " " + (i+1), atk, def, nivel));
         }
 
-        for (int i = 0; i < 2; i++) pool.add(new PotOfGreed());
-        for (int i = 0; i < 2; i++) pool.add(new BoostAtk());
-        for (int i = 0; i < 2; i++) pool.add(new AcesCoup());
-        for (int i = 0; i < 2; i++) pool.add(new StandarOfCourage());
-        for (int i = 0; i < 2; i++) pool.add(new DarkHole());
-        for (int i = 0; i < 2; i++) pool.add(new Hinotama());
-        for (int i = 0; i < 2; i++) pool.add(new ChangeOfHeart());
-        for (int i = 0; i < 2; i++) pool.add(new Raigeki());
-        for (int i = 0; i < 2; i++) pool.add(new AceleronMiauravilloso());
-        for (int i = 0; i < 2; i++) pool.add(new TyphoonOfMagicalSpace());
+            // 10 cartas mágicas (las que ya estan creadas y al menos 2 distintas repetidas)
+            pool.add(new PotOfGreed());
+            pool.add(new PotOfGreed()); // máx 2
+            pool.add(new BoostAtk());
+            pool.add(new AcesCoup());
+            pool.add(new DarkHole());
+            pool.add(new Hinotama());
+            pool.add(new ChangeOfHeart());
+            pool.add(new Raigeki());
+            pool.add(new StandarOfCourage());
+            pool.add(new TyphoonOfMagicalSpace());
+
+        // 10 cartas trampa (se crean al menos 10 y 2 repetidas)
+        for (int i = 0; i < 5; i++) pool.add(new MirrorForce());
+        for (int i = 0; i < 5; i++) pool.add(new SakuretsuArmor());
 
         Collections.shuffle(pool);
 
+    // Repartir 25 y 25
         Stack<Carta> mazo1 = new Stack<>();
         Stack<Carta> mazo2 = new Stack<>();
 
-        for (int i = 0; i < 20; i++){
+        for (int i = 0; i < 25; i++) {
             mazo1.push(pool.remove(0));
             mazo2.push(pool.remove(0));
         }
-
+        //////////////////
         Jugador j1 = new Jugador(n1, mazo1);
         Jugador j2 = new Jugador(n2, mazo2);
 
@@ -123,10 +141,16 @@ public class Juego {
 
             switch (op){
                 case 1 -> {
+                    if (cartaJugadaEsteTurno) { //se agrega esto para limitar que se juegue una sola carta por turno
+                        System.out.println("Ya jugaste una carta este turno!");
+                    break;
+                    }
                     actual.mostrarMano();
                     System.out.println("Elije una carta:");
                     int idx = sc.nextInt();
                     actual.jugarCarta(idx, oponente);
+                    cartaJugadaEsteTurno = true; //esto es parte de la modificacion para limitar a una carta por turno
+
                 }
 
                 case 2 -> faseAtaque(actual, oponente, sc);
